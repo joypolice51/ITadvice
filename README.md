@@ -1,11 +1,13 @@
 # アプリケーション名
-ITvice
+ITadvice
 
 # アプリケーション概要
 20~30代でITエンジニア歴10年未満の若手エンジニアが、40代以上でITエンジニア歴20年以上のベテランエンジニアから
 仕事での悩みに対する対処法を聞くことができる
 
 # URL
+まだ、機能実装ができていないため、デプロイしておりません。
+完了次第、デプロイしURLを共有いたします。
 
 # テスト用アカウント
 まだ、ログイン機能まで実装できておらず、アカウント未作成です。
@@ -37,6 +39,7 @@ ITvice
 
 # 洗い出した要件
 要件定義シートを参照
+https://docs.google.com/spreadsheets/d/1wwBq-dDQlgrF2Ifhh5fIO2Xsc0-VYAGBYYgydDxH4dQ/edit#gid=982722306
 
 # 実装した機能についての画像やGIFおよびその説明
 ・まだ、実装が完了した機能はございません。
@@ -57,9 +60,11 @@ ITvice
 
 ## DB設計
 ER図を参照
+\\wsl.localhost\Ubuntu\home\kenjiro\ruby\projects\ITadvice\ER図.png
 
 ## 画面遷移図
 画面遷移図を参照
+\\wsl.localhost\Ubuntu\home\kenjiro\ruby\projects\ITadvice\画面遷移図.png
 
 ## 開発環境
 ・HTML
@@ -71,7 +76,7 @@ ER図を参照
 
 ## ローカルでの動作方法
 以下のコマンドを順番に実行
-git clone 
+git clone https://github.com/joypolice51/ITadvice
 cd ~/ruby/projects/ITadvice
 bundle install
 yum install
@@ -99,100 +104,6 @@ Room作成:3h
 解決・未解決:4h
 トップページ表示機能:8h
 公開非公開:4h
-
-
-## usersテーブル
-| Column | Type | Option |
-|-|-|-|
-| id(PK) | integer | null: false |
-| name   | string | null: false |
-| email  | string | null: false, unique: true |
-| encrypted_password | string | null: false |
-| span   | string | null: false |
-| field  | string | null: false |
-| batch  | string | null: false |
-
-### Association
-- has_many :rooms
-- has_many :advices
-- has_many :directs
-- has_many :batches
-- has_many :directs-users
-- has_many :messages
-
-
-
-## roomsテーブル
-| Column | Type | Option |
-|--------|------|------|
-| name   | string | null: false |
-
-### Association
-- has_many :users
-- has_many :questions
-
-
-## questions テーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| title  | string     | null: false                    |
-| content| text       | null: false                    |
-| resolved | boolean  | default: false                 |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :room
-- belongs_to :user
-- has_many   :advices
-
-
-## advices テーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| content| text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
-| question | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- belongs_to :question
-
-
-## directs テーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| content| text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-
-
-
-## directs-users テーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| direct | references | null: false, foreign_key: true |
-
-
-
-## batches テーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-
-
-## unresolveds テーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
-| question | references | null: false, foreign_key: true |
 
 
 
