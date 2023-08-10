@@ -59,11 +59,9 @@ https://docs.google.com/spreadsheets/d/1wwBq-dDQlgrF2Ifhh5fIO2Xsc0-VYAGBYYgydDxH
 
 
 ## DB設計
-ER図を参照
 [![Image from Gyazo](https://i.gyazo.com/5cb484e321ed9d97f89116d6e0dcbbcd.png)](https://gyazo.com/5cb484e321ed9d97f89116d6e0dcbbcd)
 
 ## 画面遷移図
-画面遷移図を参照
 [![Image from Gyazo](https://i.gyazo.com/b7b091eca27d6c36aa60b4fb27571817.png)](https://gyazo.com/b7b091eca27d6c36aa60b4fb27571817)
 
 ## 開発環境
