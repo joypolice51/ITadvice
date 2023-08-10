@@ -10,30 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_04_045345) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_07_100321) do
   create_table "advices", charset: "utf8", force: :cascade do |t|
     t.text "content", null: false
+    t.boolean "public", null: false
     t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
     t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_advices_on_question_id"
-    t.index ["room_id"], name: "index_advices_on_room_id"
     t.index ["user_id"], name: "index_advices_on_user_id"
   end
 
-  create_table "directs", charset: "utf8", force: :cascade do |t|
-    t.text "content", null: false
+  create_table "direct_users", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "direct_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_directs_on_user_id"
+    t.index ["direct_id"], name: "index_direct_users_on_direct_id"
+    t.index ["user_id"], name: "index_direct_users_on_user_id"
+  end
+
+  create_table "directs", charset: "utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", charset: "utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "direct_id", null: false
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["direct_id"], name: "index_messages_on_direct_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "questions", charset: "utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
+    t.boolean "resolved", null: false
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
     t.datetime "created_at", null: false
@@ -44,19 +60,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_04_045345) do
 
   create_table "rooms", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "unresolveds", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
-    t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_unresolveds_on_question_id"
-    t.index ["room_id"], name: "index_unresolveds_on_room_id"
-    t.index ["user_id"], name: "index_unresolveds_on_user_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
@@ -65,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_04_045345) do
     t.string "name", null: false
     t.string "span", null: false
     t.string "field", null: false
+    t.boolean "batch", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -75,12 +83,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_04_045345) do
   end
 
   add_foreign_key "advices", "questions"
-  add_foreign_key "advices", "rooms"
   add_foreign_key "advices", "users"
-  add_foreign_key "directs", "users"
+  add_foreign_key "direct_users", "directs"
+  add_foreign_key "direct_users", "users"
+  add_foreign_key "messages", "directs"
+  add_foreign_key "messages", "users"
   add_foreign_key "questions", "rooms"
   add_foreign_key "questions", "users"
-  add_foreign_key "unresolveds", "questions"
-  add_foreign_key "unresolveds", "rooms"
-  add_foreign_key "unresolveds", "users"
+  add_foreign_key "rooms", "users"
 end
