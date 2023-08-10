@@ -51,5 +51,6 @@ test:
 production:
   <<: *default
   database: ITadvice_production
+  adapter: postgresql
   username: ITadvice
   password: <%= ENV["ITADVICE_DATABASE_PASSWORD"] %>
