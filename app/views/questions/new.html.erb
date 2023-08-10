@@ -1,0 +1,16 @@
+<div class = "question-new-total">
+  <div class = "question-new-page-title">
+    <p>質問する</p>
+  </div>
+  <div class = "question-new-title">
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_field :title, id:"question_title" %>
+  </div>
+  <div class = "question-new-content">
+    <%= f.label :content, "内容" %><br />
+    <%= f.text_field :content, id:"question_content" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "質問", class: :form__btn  %>
+  </div>
+</div>

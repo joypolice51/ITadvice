@@ -1,0 +1,31 @@
+<div class = "question-show-total">
+  <div class = "question-show-main">
+    <p class = "question-show-title">
+      <%= @question.title %>
+    </p>
+    <div class = "question-show-content">
+      <%= @question.content %>
+    </div>
+    <% if current_user == @question.user %>
+      <div class = "question-manage">
+        <%= link_to "編集", edit_question_path(@question), class: :question__btn %>
+        <%= link_to "削除", question_path(@question), data: { turbo_method: :delete }, class: :question__btn %>
+        <!-- 解決済みボタン -->
+        <%= f.label :resolved, "解決済み" %>
+        <%= f.check_box :resolved %>
+        <!-- 解決済みボタン -->
+      </div>
+    <% end %>    
+  </div>
+  <% if current_user != @question.user %>
+    <%= form_with model: [@advice], local: true do |f|%>
+      <div class="field">
+        <%= f.label :content, "回答" %><br />
+        <%= f.text_field :content, id:"advice_content" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "回答", class: :form__btn  %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

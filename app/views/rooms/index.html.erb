@@ -1,0 +1,18 @@
+<div class="side-bar">
+  <%= render "side_bar" %>
+</div>
+<div class= "room-index">
+  <div class = "room-index-header">
+    <h1>Room</h1>
+  </div>
+  <div class="rooms">
+    <%@rooms.each do |room| %>
+      <li class="rooms_list">
+        <%= room.name %>
+      </li>
+    <% end %>
+  </div>
+</div>
+<div class = "room-create">
+  <%= link_to "Roomを作成", パス名, class: :room__btn %>
+</div>

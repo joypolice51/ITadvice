@@ -1,0 +1,20 @@
+<div class = "question-index-total">
+  <div class = "question-index-top">
+    <div class = "question-index-room">
+      <%= @room.name %>
+    </div>
+    <div class = "question-index-question-new">
+      <%= link_to "質問する", パス名, class: 'btn' %>
+    </div>
+  </div>
+  <div class = "question-index-main">
+    <% @rooms.questions.each do |question| %>
+      <div class = "question-index-title">
+        <%= link_to @question.title, パス名, class: 'btn' %>
+      </div>
+      <div class = "question-index-conten">
+        <%= link_to @question.content, パス名, class: 'btn' %>
+      </div>
+    <% end %>
+  </div>
+</div>

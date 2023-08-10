@@ -1,0 +1,13 @@
+<div class = "user-index-total">
+  <div class = "user-index-top">
+    <p>ユーザー</p>
+  </div>
+  <div class = "user-index-main">
+    <% @user.name.each do |user| %>
+      <div class="users">
+        <div class="user-name">
+          <%= link_to user.name, パス名(user) %>
+        </div>
+      </div>
+  </div>
+</div>

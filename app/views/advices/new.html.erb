@@ -1,0 +1,10 @@
+<%= form_with model: [@room, @advice], class: 'form', local: true do |f| %>
+  <div class="form-input">
+    <%= f.text_field :content, class: 'form-advice', placeholder: '回答を入力してください' %>    
+  </div>
+  <!-- 公開非公開ボタン -->
+  <%= f.label :public, "公開" %>
+  <%= f.check_box :public %>
+  <!-- 公開非公開ボタン -->
+  <%= f.submit '回答', class: 'form-submit' %>
+<% end %>
