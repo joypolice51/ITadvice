@@ -39,7 +39,7 @@ ITadvice
 
 # 洗い出した要件
 要件定義シートを参照
-https://docs.google.com/spreadsheets/d/1wwBq-dDQlgrF2Ifhh5fIO2Xsc0-VYAGBYYgydDxH4dQ/edit#gid=982722306
+https://docs.google.com/spreadsheets/d/1wwBq-dDQlgrF2Ifhh5fIO2Xsc0-VYAGBYYgydDxH4dQ/edit?usp=sharing
 
 # 実装した機能についての画像やGIFおよびその説明
 ・まだ、実装が完了した機能はございません。
@@ -60,11 +60,11 @@ https://docs.google.com/spreadsheets/d/1wwBq-dDQlgrF2Ifhh5fIO2Xsc0-VYAGBYYgydDxH
 
 ## DB設計
 ER図を参照
-\\wsl.localhost\Ubuntu\home\kenjiro\ruby\projects\ITadvice\ER図.png
+[![Image from Gyazo](https://i.gyazo.com/5cb484e321ed9d97f89116d6e0dcbbcd.png)](https://gyazo.com/5cb484e321ed9d97f89116d6e0dcbbcd)
 
 ## 画面遷移図
 画面遷移図を参照
-\\wsl.localhost\Ubuntu\home\kenjiro\ruby\projects\ITadvice\画面遷移図.png
+[![Image from Gyazo](https://i.gyazo.com/b7b091eca27d6c36aa60b4fb27571817.png)](https://gyazo.com/b7b091eca27d6c36aa60b4fb27571817)
 
 ## 開発環境
 ・HTML
