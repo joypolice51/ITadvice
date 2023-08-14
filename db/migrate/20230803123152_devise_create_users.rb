@@ -9,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :name,               null: false
       t.string :span,               null: false
       t.string :field,              null: false
-      t.boolean :batch,             null: false
+      t.boolean :batch,             null: true
 
       ## Recoverable
       t.string   :reset_password_token

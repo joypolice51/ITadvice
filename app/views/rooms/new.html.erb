@@ -1,7 +1,9 @@
-<div class = "room-new">
-  <div class = "room-create">
-    <%= f.label :name, "Room名" %><br />
-    <%= f.text_field :name, id:"room-name" %>
+<div class="room-new">
+  <div class="room-create">
+    <%= form_for @room do |f| %>
+      <%= f.label :name, "Room名", class: :room_column %><br />
+      <%= f.text_field :name, id: "room-name", class: :room_form %>
+      <%= f.submit "作成", formaction: rooms_path, class: :form__btn %>
+    <% end %>
   </div>
-  <%= f.submit "作成", class: :form__btn  %>
 </div>

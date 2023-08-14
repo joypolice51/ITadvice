@@ -17,15 +17,17 @@
       </div>
     <% end %>    
   </div>
-  <% if current_user != @question.user %>
-    <%= form_with model: [@advice], local: true do |f|%>
-      <div class="field">
-        <%= f.label :content, "回答" %><br />
-        <%= f.text_field :content, id:"advice_content" %>
-      </div>
-      <div class="actions">
-        <%= f.submit "回答", class: :form__btn  %>
-      </div>
+  <div class = "question-show-advice">
+    <% if current_user != @question.user %>
+      <%= form_with model: [@advice], local: true do |f|%>
+        <div class="field">
+          <%= f.label :content, "回答" %><br />
+          <%= f.text_field :content, id:"advice_content" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "回答", class: :form__btn  %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

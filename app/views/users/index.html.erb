@@ -1,13 +1,19 @@
 <div class = "user-index-total">
-  <div class = "user-index-top">
-    <p>ユーザー</p>
+  <div class = "user-index-side">
+    <%= render "devise/shared/side_bar"%>
   </div>
-  <div class = "user-index-main">
-    <% @user.name.each do |user| %>
-      <div class="users">
-        <div class="user-name">
-          <%= link_to user.name, パス名(user) %>
+  <div class = "user-index-content">
+    <div class = "user-index-top">
+      <p>ユーザー一覧</p>
+    </div>
+    <div class = "user-index-main">
+      <% @users.each do |user| %>
+        <div class="all-users">
+          <div class="user-name">
+            <%= link_to user.name,  user_path(user) %>
+          </div>
         </div>
-      </div>
-  </div>
+      <% end %>
+    </div>
+  </div>  
 </div>

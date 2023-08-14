@@ -10,31 +10,33 @@
         <%= @user.name %>
       </div>
     <div>
-    <div class = "number-of-advices">
-      <p>回答数<p>
-    </div>
-    <div class = "span">
-      <p>経験年数</p>
-      <%= @user.span %>
-    </div>
-    <div class = "field">
-      <p>経験分野</p>
-      <%= @user.field %>
-    </div>
-    <div class = "batch">
-      <%= @user.batch %>
+    <div class = "mypage-left-profile">
+      <div class = "number-of-advices">
+        <p>回答数<p>
+      </div>
+      <div class = "span">
+        <p>経験年数</p>
+        <%= @user.span %>
+      </div>
+      <div class = "field">
+        <p>経験分野</p>
+        <%= @user.field %>
+      </div>
+      <div class = "batch">
+        <%= @user.batch %>
+      </div>
     </div>
   </div>
 
   <%# ダイレクトメッセージ %>
   <div class = "mypage-center">
-    <%= link_to "ダイレクトメッセージ", パス名, class: :room__btn %>
+    <%= link_to "ダイレクトメッセージ", パス名, class: :direct__btn %>
   </div>
 
   <%# プロフィール編集 %>
   <div class = "mypage-right">
     <% if user_signed_in? && current_user.id == @user.id %>
-      <%= link_to "プロフィールを編集" , パス名, class: :room__btn %>
+      <%= link_to "プロフィールを編集" , パス名, class: :profile__btn %>
     <% end %>
   </div>
 </div>
